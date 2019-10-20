@@ -5,6 +5,12 @@ TextureImporter:
   - first:
       213: -6621151928167810033
     second: basicTileset_0
+  - first:
+      213: -1002250178554732403
+    second: Tileset_Default_0
+  - first:
+      213: 7337852528880924326
+    second: Tileset_Default_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -48,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -89,22 +95,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: basicTileset_0
+      name: Tileset_Default_0
       rect:
         serializedVersion: 2
         x: 0
         y: 90
         width: 10
         height: 10
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ad1fe692013f364b8f2555fe8d36c01
-      internalID: -6621151928167810033
+      spriteID: 35368b59a1b39694aa4f9aa2a7b7a688
+      internalID: -1002250178554732403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset_Default_1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 90
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c662e0dd90037aa42a2ae51c0a892727
+      internalID: 7337852528880924326
       vertices: []
       indices: 
       edges: []
