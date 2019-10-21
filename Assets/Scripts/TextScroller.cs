@@ -13,6 +13,7 @@ public class TextScroller : MonoBehaviour
     public AudioClip blip;
     [MinMaxSlider(0,2)]
     public Vector2 pitchRange;
+    public float blipRange;
 
     public static TextScroller instance;
     void Awake(){
@@ -23,6 +24,7 @@ public class TextScroller : MonoBehaviour
     }
 
     public void BloopText(string text){
+        targetPitch = UnityEngine.Random.Range(pitchRange.x, pitchRange.y);
         StartCoroutine(BloopTextRoutine(text));
     }
     IEnumerator BloopTextRoutine(string text){
@@ -39,12 +41,10 @@ public class TextScroller : MonoBehaviour
         var characters = text.ToCharArray();
         
         yield return null;
-        Debug.Log("Showing character " + currentIndex + "/" + totalVisibleCharacters);
 
         textMesh.enabled = true;
         while (currentIndex < totalVisibleCharacters)
         {
-            Debug.Log("Showing character " + currentIndex + "/" + totalVisibleCharacters);
             currentIndex = Mathf.Min (currentIndex + (charsPerSecond * Time.deltaTime), totalVisibleCharacters);
             var i = Mathf.FloorToInt(currentIndex);
             if (i > intIndex && i > 0){
@@ -66,12 +66,14 @@ public class TextScroller : MonoBehaviour
         BloopText(testString);
     }
 
+    float targetPitch;
+
     void PlayBlip(bool final){
         if (final){
-            audioSource.pitch = pitchRange.x;
+            audioSource.pitch = targetPitch - blipRange;
         }
         else{
-            audioSource.pitch = UnityEngine.Random.Range(pitchRange.x, pitchRange.y);
+            audioSource.pitch = UnityEngine.Random.Range(targetPitch - blipRange, targetPitch + blipRange);
         }
         audioSource.PlayOneShot(blip);
     }

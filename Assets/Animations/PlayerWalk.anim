@@ -22,17 +22,17 @@ AnimationClip:
     - time: 0
       value: {fileID: 1341951855039238538, guid: 020a7b8b7fc9ac347833e381b3b72af6,
         type: 3}
+    - time: 0.11666667
+      value: {fileID: -5778590093982927133, guid: 020a7b8b7fc9ac347833e381b3b72af6,
+        type: 3}
     - time: 0.25
+      value: {fileID: 1252354279565329153, guid: 020a7b8b7fc9ac347833e381b3b72af6,
+        type: 3}
+    - time: 0.38333333
       value: {fileID: -5778590093982927133, guid: 020a7b8b7fc9ac347833e381b3b72af6,
         type: 3}
     - time: 0.5
-      value: {fileID: 1252354279565329153, guid: 020a7b8b7fc9ac347833e381b3b72af6,
-        type: 3}
-    - time: 0.76666665
       value: {fileID: -5778590093982927133, guid: 020a7b8b7fc9ac347833e381b3b72af6,
-        type: 3}
-    - time: 1.0166667
-      value: {fileID: 1341951855039238538, guid: 020a7b8b7fc9ac347833e381b3b72af6,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -57,13 +57,13 @@ AnimationClip:
     - {fileID: -5778590093982927133, guid: 020a7b8b7fc9ac347833e381b3b72af6, type: 3}
     - {fileID: 1252354279565329153, guid: 020a7b8b7fc9ac347833e381b3b72af6, type: 3}
     - {fileID: -5778590093982927133, guid: 020a7b8b7fc9ac347833e381b3b72af6, type: 3}
-    - {fileID: 1341951855039238538, guid: 020a7b8b7fc9ac347833e381b3b72af6, type: 3}
+    - {fileID: -5778590093982927133, guid: 020a7b8b7fc9ac347833e381b3b72af6, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.0333333
+    m_StopTime: 0.51666665
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -83,6 +83,20 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0
+    functionName: StepForward
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.11666667
+    functionName: StepSound
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.25
     functionName: StepForward
     data: 
@@ -90,8 +104,8 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.76666665
-    functionName: StepForward
+  - time: 0.38333333
+    functionName: StepSound
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

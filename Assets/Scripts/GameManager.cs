@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     IEnumerator EnterHouseRoutine(){
         HouseGen.instance.GenerateHouse();
         PlayMusic();
-        //Player.instance.WalkIntoHouse();
+        yield return Player.instance.WalkIntoHouse();
         yield return new WaitForSeconds(textDelay);
         TextScroller.instance.BloopText(grammar.Sample("main"));
         //TextScroller.instance.BloopText("WELCOME TO MY HOUSE");
