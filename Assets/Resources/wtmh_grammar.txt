@@ -1,0 +1,189 @@
+#EXCLUDE sing,plur,fp
+#EXCLUDE mat,color,food
+#EXCLUDE good,evil
+#EXCLUDE here,away
+#EXCLUDE pres,past
+#EXCLUDE select,unique
+#EXCLUDE pos,neg
+#EXCLUDE shop,cave,house
+
+main: @house | @shop | @cave
+
+house: @advice!house
+house: @question!house
+shop: @item!shop
+cave: @advice!cave
+cave: @question!cave
+cave: @item!cave
+advice: @fact
+advice: @greeting
+advice: @greeting @punct @fact
+punct: #, | #. | #! | #...
+greeting: HELLO | WELCOME | HI
+fact: THIS IS @here
+fact: @item_dp @is @item_pred
+fact: @monster_dp @is @monster_pred
+fact: THERE @is @item_dp
+fact: THERE @is @monster_dp @place_rel @place*
+fact: @monster_dp @place_rel @place*
+fact: I @is*!fp @pers_pred
+fact: I @is*!fp @pers!sing
+fact: I @has*!fp @item_dp
+fact: I @has*!fp @pers_family_dp
+fact: I @pers_vp!plur
+fact: @pers @is @pers_pred
+fact: @pers @has @pers_property
+fact: @pers @pers_vp
+advice: WELCOME TO @here
+advice: @imp_vp
+advice: YOU MUST @imp_vp
+
+modal: CAN | COULD | WILL | WOULD | MIGHT | MUST | SHOULD
+is: @modal BE
+is: @is_v
+is!neg: @is_v NOT
+is_v!sing: IS
+is_v!plur: ARE
+is_v!fp: AM | #'M
+has: @modal HAVE
+has: @has_v | @has_v | @has_v
+has_v!sing: HAS
+has_v!plur: HAVE
+has_v!fp: HAVE
+
+pers: MY @pers_family_np
+pers: THE @pers_np
+pers!plur: YOU | THEY | WE
+pers!sing: A @pers_np
+pers_np: @pers_pre @pers_n
+pers_np: @pers_n
+pers_np: @pers_n @pers_post
+pers_post: WHO @pers_vp
+pers_post: WHO @is @pers_pred
+pers_post: WHO @has @pers_property
+
+pers_family_dp: A @pers_family_np!sing
+pers_family_dp: @pers_family_np
+pers_family_np: @pers_family_pre @pers_family_n
+pers_family_np: @pers_family_n
+pers_family_pre: LOVELY | NICE | CHARMING | ANNOYING | LATE | DEAD | OLD | YOUNG
+pers_family_pre!select,sing: OLDEST | YOUNGEST | FIRST | SECOND | THIRD
+pers_family_n_base!unique,sing: MOTHER | FATHER
+pers_family_n_base!select: HUSBAND | DAUGHTER | SON | GRANDSON | GRANDDAUGHTER | NIECE | NEPHEW | UNCLE | AUNT | GIRLFRIEND | BOYFRIEND
+pers_family_n!sing: @pers_family_n_base | WIFE | CHILD
+pers_family_n!plur: @pers_family_n_base #S | WIVES | CHILDREN
+
+pers_pred: @pers_feeling | @pers_feeling THAT @fact
+pers_pred: @place_rel @place*
+
+pers_property: @item_dp
+pers_property: @pers_family_dp
+
+here: MY @place_np!here,good | OUR @place_np!here,good | THIS @place_np!here
+place: THE @place_np
+place: A @place_np
+place: @here
+place_np: @place_n
+place_np: @place_pre @place_n
+place_np!away: @place_n @place_post
+place_post: @place_rel @place*
+place_post: WHERE @fact*
+place_rel: NEAR | NEXT TO | BEHIND | UNDER | ABOVE | INSIDE | IN | WITHIN | CLOSE TO
+place_n!here,good,house: HOUSE | HOME
+place_n!here,good,cave: CAVE | CAVERN
+place_n!here,good,shop: SHOP | STORE | BUSINESS
+
+item: @get_v @get_item_dp
+item: HERE @is_v!sing @item_dp | HERE @is_v!plur @item_dp
+item: THIS @is_v!sing @item_dp
+item: THESE @is_v!plur @item_dp
+get_v: GET | TAKE | HAVE | OBTAIN | COLLECT | PICK UP
+get_v!food: EAT | CONSUME | TASTE
+get_v!potion: DRINK
+get_item_dp: THIS @item_np | @item_dp
+item_dp: THE @item_np | MY @item_np | YOUR @item_np | OUR @item_np | @pers*!sing #'S @item_np
+item_dp!sing: A @item_np
+item_dp!plur: SOME @item_np | @item_np
+item_np: @item_pre @item_n
+item_np: @item_n
+item_np: @item_n @item_post
+item_pre!color: @color
+item_post: OF @topic
+item_n!sing: @item_n_base
+item_n!plur: @item_n_base #S
+item_pred: @place_rel @place*
+
+monster_dp: THE @monster_n
+monster_dp!sing: A @monster_n
+monster_dp!plur: SOME @monster_n
+monster_n!sing: @monster_n_base
+monster_n!plur: @monster_n_base #S
+
+monster_pred: SCARY | DEADLY | DANGEROUS
+monster_pred: AFRAID OF @get_item_dp*
+monster_pred: WEAK TO @get_item_dp*
+monster_pred: @place_rel @place*
+
+pers_vp: @pers_vmod | @pers_vp_base
+pers_vmod!sing: DOES NOT @pers_vp_base!plur
+pers_vmod!plur: DO NOT @pers_vp_base!plur
+
+pers_vp_base: @like_v @like_obj*
+like_v!sing: LIKES | LOVES | HATES | DISLIKES
+like_v!plur: LIKE | LOVE | HATE | DISLIKE
+like_obj: @get_item_dp
+like_obj: @place
+like_obj: @pers
+
+pers_vp_base: @know_v @know_obj*
+know_v!sing: KNOWS
+know_v!plur: KNOW
+know_obj: ABOUT @get_item_dp
+know_obj: ABOUT @place
+know_obj: ABOUT @pers
+know_obj: HOW TO @imp_vp
+know_obj: WHERE @item_dp @is
+know_obj: WHERE TO @imp_vp
+know_obj: THAT @fact
+
+pers_vp_base: @want_v @want_obj*
+want_v!sing: WANTS | DESIRES | NEEDS
+want_v!plur: WANT | DESIRE | NEED
+want_obj: @item_dp
+want_obj: YOU TO @imp_vp
+
+pers_vp_base!past: @find_v @get_item_dp*
+find_v!past: FOUND | DISCOVERED | CAME ACROSS
+
+question: DO YOU @pers_vp!plur,pres #?
+question: DID YOU @pers_vp!plur,pres #?
+question: WHO @is_v!plur @pers!plur #? | WHO @is_v!sing @pers!sing #?
+question: CAN YOU @imp_vp #?
+question: WHERE IS @place #?
+question: WHERE @is_v!sing @item_dp #? | WHERE @is_v!plur @item_dp #?
+
+imp_vp: @imp_vp_base*
+imp_vp: @imp_vp_base* @imp_vp_post
+imp_vp_post: SOON | NOW
+imp_vp_base: KILL @monster_dp
+imp_vp_base: KILL @monster_dp @place_rel @place
+imp_vp_base: FIND @item_dp
+imp_vp_base: FIND @item_dp @place_rel @place
+imp_vp_base: FIND @pers
+imp_vp_base: SHOW ME @item_dp
+imp_vp_base: TRADE @item_dp FOR @get_item_dp
+imp_vp_base: GIVE ME @item_dp
+imp_vp_base: BRING ME @item_dp
+imp_vp_base: GUESS WHERE @item_dp @is
+imp_vp_base: GUESS WHO @pers @is
+imp_vp_base: HUNT @monster_dp
+imp_vp_base: DEFEAT @monster_dp
+imp_vp_base: WATCH OUT FOR @monster_dp
+imp_vp_base: LOOK OUT FOR @monster_dp
+imp_vp_base: AVOID @monster_dp
+imp_vp_base: GO TO @place_n
+imp_vp_base: LOOK @place_rel @place
+imp_vp_base: LOOK FOR @place
+imp_vp_base: LOOK FOR @item_dp
+imp_vp_base: LOOK FOR @item_dp @place_rel @place
+imp_vp_base: PROTECT @pers

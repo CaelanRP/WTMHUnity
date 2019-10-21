@@ -1,0 +1,30 @@
+
+pers_pre!wise: WISE | ANCIENT | MYSTIC
+pers_n_base!wise: GURU | WIZARD | WITCH | ORACLE | MONK | SAGE | HERMIT
+pers_n_base: BLACKSMITH | SHOPKEEPER | MAYOR | GUY | LADY | KID | BOY | GIRL | LIBRARIAN | GUARD | KING | MAYOR | CHIEF | QUEEN | PRINCE
+pers_n!sing: @pers_n_base | PRINCESS | WOMAN | MAN | LADY | BOSS
+pers_n!plur: @pers_n_base #S | PRINCESSES | WOMEN | MEN | LADIES | BOSSES
+
+
+pers_feeling: HAPPY | SAD | UPSET | SURPRISED | GLAD | PROUD | SURE | CONFIDENT | WORRIED | NERVOUS
+
+place_pre!good: BIG | SMALL | OLD | WIZARD'S | SPECIAL | SECRET | OTHER | little | tiny
+place_pre!evil: ancient | ruined | haunted | scary | dark | dangerous | hell | demon | ghost | evil | terror | necromancer's | devil's | king's | queen's | sprawling | magic | winding | hidden | secret | big | huge | shifting | nearby | far away
+
+place_n!good,away: CITY | VILLAGE | TOWN | FOREST | CASTLE | TOWER | MOUNTAIN | TRAIL | PATH | CHURCH | TEMPLE | ridge | cottage | land | island | river | canyon | valley
+place_n!evil: DUNGEON | CRYPT | PORTAL | PIT | ZONE | LAIR | TOMB | CEMETERY | CHAMBER | enclave | volcano | fortress
+
+item_pre: cursed | special | powerful | rare | good | dangerous | divine | holy | unholy | weird | deadly | secret | mysterious | ordinary | dark | magic | twisted | ancient | great | curved | blessed | massive | warrior's | mage's
+item_pre!mat: GOLDEN | IRON | MITHRIL | STEEL | COPPER | BRONZE | CRYSTAL | WOODEN
+item_pre!food: TASTY | POISONOUS | BEST | GOOD | GREAT | BAD | DISGUSTING | BLAND | BITTER | SPICY
+
+item_n_base: THING | ITEM | OBJECT | TOOL | DEVICE | ORB | CUBE
+item_n_base!mat: hammer | sword | spear | dagger | key | ring | armor | helmet | weapon | rod | staff | wand | knife | bar | lance | crowbar | blade | weapon | amulet | coin | circlet | gauntlet | gun | shield | boots
+item_n_base!color: tome | book | cloak | cape | shoe | bag | stick | rock | stone | shirt | ladder | jar | bottle | map | pot | box | bracelet | potion | gem | crystal | amulet | rope | hand | hat | gem | glove | scarf | belt | bomb | bow | whip
+item_n_base!food: mushroom | stew | soup | meat | food | curry | bun | bread | sandwich | meal | snack | pot roast | dessert | chicken | feast | candy | pie | cake | steak | cooking | pork | beef | chocolate | banana | apple | sauce | carrot | cabbage | cheese | drink | egg
+
+topic: death | life | power | blood | mystery | kings | the gods | eternity | silence | teleportation | vision | knowledge | greed | hate | love | the soul | spirit | strength | the ages | time | thought | lightning | wind | fire | flame | darkness | science | fury | friendship | gluttony | lust | danger | storms | secrets | shrinking | freezing | burning | invisibility | nightmares | mystery | wonder | chaos | nature
+
+monster_n_base: wolf | boar | ghost | zombie | skeleton | goblin | dragon | ghoul | lich | bandit | wizard | soldier | lizard | snake | fish | cultist | slime | mutant | serpent | hydra | fungus | horror | rat | harpy | gargoyle | drake | salamander | mermaid | dwarf | hobgoblin | vampire | monster | golem | statue | ratman | slug | shark | bear | hog
+
+color: BLACK | WHITE | GREEN | YELLOW | BLUE | RED | PINK | ORANGE | PURPLE | BROWN | GREY
