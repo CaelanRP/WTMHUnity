@@ -13,6 +13,16 @@ public class GameManager : MonoBehaviour
     public float musicFadeTime;
     public List<AudioClip> houseMusic;
 
+    private Grammar _G;
+    public Grammar grammar{
+        get{
+            if (_G == null){
+                _G = new Grammar("wtmh_grammar", "wtmh_vocab");
+            }
+            return _G;
+        }
+    }
+
     void Awake(){
         audioSource = GetComponent<AudioSource>();
     }
@@ -37,7 +47,8 @@ public class GameManager : MonoBehaviour
         PlayMusic();
         //Player.instance.WalkIntoHouse();
         yield return new WaitForSeconds(textDelay);
-        TextScroller.instance.BloopText("WELCOME TO MY HOUSE");
+        TextScroller.instance.BloopText(grammar.Sample("main"));
+        //TextScroller.instance.BloopText("WELCOME TO MY HOUSE");
     }
 
     AudioClip prevMusic = null;

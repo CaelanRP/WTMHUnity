@@ -7,7 +7,7 @@ public class Grammar
     private Dictionary<string, List<Definition>> rules;
     private Dictionary<string, List<string>> exclusions;
 
-    Grammar(params string[] sourceFilenames) {
+    public Grammar(params string[] sourceFilenames) {
         this.rules = new Dictionary<string, List<Definition>>();
         this.exclusions = new Dictionary<string, List<string>>();
         foreach (string filename in sourceFilenames) {
@@ -207,7 +207,7 @@ public class Grammar
         }
     }
 
-    string Sample(string ruleName) {
+    public string Sample(string ruleName) {
         List<Definition> defns = rules[ruleName];
         Context ctx = new Context(this, null, defns[Random.Range(0, defns.Count)], 0, null, new List<string>());
         List<Context> queue = new List<Context>();

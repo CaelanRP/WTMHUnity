@@ -30,16 +30,18 @@ public class TextScroller : MonoBehaviour
         yield return null;
         float currentIndex = 0;
         int intIndex = 0;
-        textMesh.text = text;
-        yield return null;
-        TMPro.TMP_TextInfo textInfo = textMesh.textInfo;
-        int totalVisibleCharacters = textInfo.characterCount; // Get # of Visible Character in text object
         textMesh.maxVisibleCharacters = 0;
+        textMesh.text = text;
+        TMPro.TMP_TextInfo textInfo = textMesh.textInfo;
+        yield return null;
+        int totalVisibleCharacters = textInfo.characterCount; // Get # of Visible Character in text object
 
         var characters = text.ToCharArray();
         
         yield return null;
         Debug.Log("Showing character " + currentIndex + "/" + totalVisibleCharacters);
+
+        textMesh.enabled = true;
         while (currentIndex < totalVisibleCharacters)
         {
             Debug.Log("Showing character " + currentIndex + "/" + totalVisibleCharacters);

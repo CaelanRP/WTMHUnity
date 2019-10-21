@@ -444,7 +444,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 16
   m_textAlignment: 258
   m_characterSpacing: -1
   m_wordSpacing: 0
@@ -476,7 +476,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.28825426, y: 0.030780315, z: 0.030313969, w: -0.4374348}
+  m_margin: {x: -0.0019459724, y: 0.030780315, z: 0.030313969, w: -0.4374348}
   m_textInfo:
     textComponent: {fileID: 621519253}
     characterCount: 19
@@ -572,8 +572,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2.859}
-  m_SizeDelta: {x: 14.285, y: 1.814}
+  m_AnchoredPosition: {x: 0.055, y: 2.859}
+  m_SizeDelta: {x: 13.524, y: 1.814}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &672848725
 PrefabInstance:
