@@ -72,13 +72,13 @@ public class Grammar
                     }
                 }
             }
-            foreach (string rule in rules.Keys) {
-                foreach (Definition defn in rules[rule]) {
-                    foreach (DefinitionItem item in defn.items) {
-                        if (item is Ref) {
-                            if (!rules.ContainsKey(((Ref) item).ruleName)) {
-                                Debug.LogError("Reference to undefined rule \""+((Ref) item).ruleName+"\" in definition for rule \""+rule+"\""); 
-                            }
+        }
+        foreach (string rule in rules.Keys) {
+            foreach (Definition defn in rules[rule]) {
+                foreach (DefinitionItem item in defn.items) {
+                    if (item is Ref) {
+                        if (!rules.ContainsKey(((Ref) item).ruleName)) {
+                            Debug.LogError("Reference to undefined rule \""+((Ref) item).ruleName+"\" in definition for rule \""+rule+"\""); 
                         }
                     }
                 }
