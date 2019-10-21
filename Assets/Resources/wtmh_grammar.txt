@@ -187,3 +187,5 @@ imp_vp_base: LOOK FOR @place
 imp_vp_base: LOOK FOR @item_dp
 imp_vp_base: LOOK FOR @item_dp @place_rel @place
 imp_vp_base: PROTECT @pers
+imp_vp_base: SEEK @item_dp
+imp_vp_base: SEEK @place
