@@ -14,7 +14,14 @@ public class Player : MonoBehaviour
         instance = this;
         animator = GetComponent<Animator>();
     }
+
+    void Update(){
+        if (!GameManager.instance.transitioning){
+            HandleInput();
+        }
+    }
     Vector3 target;
+    bool walking;
     public IEnumerator WalkToLocation(Vector3 target){
         this.target = target;
         animator.SetBool("Walking", true);
@@ -32,7 +39,36 @@ public class Player : MonoBehaviour
             0);
             Debug.Log("Setting position to " + newPos);
         transform.position = newPos;
-        
+
+        AfterStep();
+    }
+
+    void HandleInput(){
+        float val = Input.GetAxisRaw("Vertical");
+        if (val > 0.5f && canMoveUp){
+            target = transform.position + Vector3.up;
+            animator.SetBool("Walking", true);
+        }
+        else if (val < -0.5f){
+            target = transform.position + Vector3.down;
+            animator.SetBool("Walking", true);
+        }
+        else{
+            animator.SetBool("Walking", false);
+        }
+    }
+
+    void AfterStep(){
+        if (transform.position.y <= HouseGen.instance.exitHousePos){
+            animator.SetBool("Walking", false);
+            GameManager.instance.ExitHouse();
+        }
+    }
+
+    bool canMoveUp{
+        get{
+            return transform.position.y < HouseGen.instance.maxPlayerPos;
+        }
     }
 
     public void StepSound(){

@@ -937,6 +937,8 @@ MonoBehaviour:
   gridSizeX: 16
   gridSizeY: 9
   tileSize: 1
+  maxPlayerPos: -1.2
+  exitHousePos: -4.7
 --- !u!1 &1131147717
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,6 +1156,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b21945cbf761ca94397d013238951025, type: 3}
   - {fileID: 8300000, guid: b74b3739e0973854b9503521703fdce6, type: 3}
   - {fileID: 8300000, guid: 03b7f132c4260034281974087d6814ad, type: 3}
+  transitioning: 0
 --- !u!4 &2045400451
 Transform:
   m_ObjectHideFlags: 0

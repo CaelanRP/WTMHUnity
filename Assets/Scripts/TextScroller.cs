@@ -23,11 +23,11 @@ public class TextScroller : MonoBehaviour
         textMesh.text = "";
     }
 
-    public void BloopText(string text){
-        targetPitch = UnityEngine.Random.Range(pitchRange.x, pitchRange.y);
-        StartCoroutine(BloopTextRoutine(text));
+    public void Reset(){
+        textMesh.text = "";
     }
-    IEnumerator BloopTextRoutine(string text){
+
+    public IEnumerator BloopTextRoutine(string text){
         textMesh.text = "";
         yield return null;
         float currentIndex = 0;
@@ -41,6 +41,8 @@ public class TextScroller : MonoBehaviour
         var characters = text.ToCharArray();
         
         yield return null;
+
+        targetPitch = UnityEngine.Random.Range(pitchRange.x, pitchRange.y);
 
         textMesh.enabled = true;
         while (currentIndex < totalVisibleCharacters)
@@ -63,7 +65,7 @@ public class TextScroller : MonoBehaviour
 
     [Button("Test Text")]
     void TestText(){
-        BloopText(testString);
+        StartCoroutine(BloopTextRoutine(testString));
     }
 
     float targetPitch;

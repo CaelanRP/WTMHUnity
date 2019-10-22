@@ -23,7 +23,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public static GameManager instance;
+
     void Awake(){
+        instance = this;
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -42,13 +45,28 @@ public class GameManager : MonoBehaviour
         HouseGen.instance.StopAllCoroutines();
     }
 
+    [HideInInspector]
+    public bool transitioning;
+
     IEnumerator EnterHouseRoutine(){
+        transitioning = true;
         HouseGen.instance.GenerateHouse();
         PlayMusic();
         yield return Player.instance.WalkIntoHouse();
         yield return new WaitForSeconds(textDelay);
-        TextScroller.instance.BloopText(grammar.Sample("main"));
+        yield return TextScroller.instance.BloopTextRoutine(grammar.Sample("main"));
+        transitioning = false;
         //TextScroller.instance.BloopText("WELCOME TO MY HOUSE");
+    }
+
+    IEnumerator ReloadHouseRoutine(){
+        Reset();
+        yield return StartCoroutine(EnterHouseRoutine());
+    }
+
+    public void ExitHouse(){
+        StopMusic();
+        StartCoroutine(ReloadHouseRoutine());
     }
 
     AudioClip prevMusic = null;
@@ -57,6 +75,10 @@ public class GameManager : MonoBehaviour
         audioSource.clip = houseMusic.Where(c => c != prevMusic).RandomSelection();
         prevMusic = audioSource.clip;
         StartCoroutine(FadeInMusic(musicFadeTime));
+    }
+
+    void StopMusic(){
+        audioSource.Stop();
     }
 
     IEnumerator FadeInMusic(float FadeTime) {

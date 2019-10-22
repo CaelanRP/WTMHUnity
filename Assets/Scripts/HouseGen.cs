@@ -8,6 +8,8 @@ public class HouseGen : MonoBehaviour
     public int gridSizeX, gridSizeY;
     public float tileSize = 0.1f;
 
+    public float maxPlayerPos, exitHousePos;
+
     private Transform m_tileContainer;
     public Transform tileContainer{
         get{
@@ -45,6 +47,7 @@ public class HouseGen : MonoBehaviour
 
     public void GenerateHouse(){
         GenerateWalls();
+        TextScroller.instance.Reset();
     }
 
     public Vector2 GetWorldPosition(int x, int y){
