@@ -56,7 +56,11 @@ public class GameManager : MonoBehaviour
         PlayMusic();
         yield return Player.instance.WalkIntoHouse();
         yield return new WaitForSeconds(textDelay);
-        yield return TextScroller.instance.BloopTextRoutine(grammar.Sample("main"));
+        string s = "";
+        try{
+            s = grammar.Sample("main");
+        } catch { }
+        yield return TextScroller.instance.BloopTextRoutine(s);
         transitioning = false;
         //TextScroller.instance.BloopText("WELCOME TO MY HOUSE");
     }
