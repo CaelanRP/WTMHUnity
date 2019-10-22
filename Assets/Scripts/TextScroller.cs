@@ -7,13 +7,16 @@ public class TextScroller : MonoBehaviour
 {
     public int charsPerSecond;
 
-    TextMeshPro textMesh;
+    [HideInInspector]
+    public TextMeshPro textMesh;
 
     AudioSource audioSource;
     public AudioClip blip;
     [MinMaxSlider(0,2)]
     public Vector2 pitchRange;
     public float blipRange;
+
+    public Elder talker;
 
     public static TextScroller instance;
     void Awake(){
@@ -42,6 +45,8 @@ public class TextScroller : MonoBehaviour
         
         yield return null;
 
+        talker.StartAnimation();
+
         targetPitch = UnityEngine.Random.Range(pitchRange.x, pitchRange.y);
 
         textMesh.enabled = true;
@@ -59,6 +64,8 @@ public class TextScroller : MonoBehaviour
             textMesh.maxVisibleCharacters = intIndex;
             yield return null;
         }
+
+        talker.StopAfterFrame();
     }
 
     public string testString;

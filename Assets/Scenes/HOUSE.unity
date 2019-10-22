@@ -201,8 +201,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 1832049541}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &166175689
 Animator:
@@ -378,6 +378,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
@@ -471,6 +472,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a213ea3ab0982f6449061fcf977dd053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &621519252
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,9 +803,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charsPerSecond: 8
+  textMesh: {fileID: 0}
   blip: {fileID: 8300000, guid: ab097ffdf63d9314390fa6958ac59a04, type: 3}
   pitchRange: {x: 0.8, y: 2}
   blipRange: 0.2
+  talker: {fileID: 1131147720}
   testString: WELCOME TO MY HOUSE
 --- !u!82 &677231868
 AudioSource:
@@ -939,6 +954,19 @@ MonoBehaviour:
   tileSize: 1
   maxPlayerPos: -1.2
   exitHousePos: -4.7
+  palettes:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 0.4669811, b: 0.4669811, a: 1}
+  - {r: 0.759434, g: 1, b: 0.7606342, a: 1}
+  - {r: 0.6745283, g: 0.9767747, b: 1, a: 1}
+  - {r: 0.7311321, g: 0.80924696, b: 1, a: 1}
+  - {r: 0.8652915, g: 0.6497419, b: 0.8773585, a: 1}
+  - {r: 0.8784314, g: 0.6509804, b: 0.6802855, a: 1}
+  - {r: 0.8736217, g: 0.8784314, b: 0.6509804, a: 1}
+  - {r: 0.6509804, g: 0.7818319, b: 0.8784314, a: 1}
+  - {r: 0.8652915, g: 0.6497419, b: 0.8773585, a: 1}
+  - {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
+  currentPalette: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1131147717
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,6 +976,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1131147718}
+  - component: {fileID: 1131147720}
   - component: {fileID: 1131147719}
   m_Layer: 0
   m_Name: Elder
@@ -1008,7 +1037,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5205570403288979319, guid: c396ec85a9785ff4dae7d0d2a077f401,
+  m_Sprite: {fileID: 3853259134535682779, guid: ff46b5bb4f6fab24295ec4376d6c96d0,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1020,6 +1049,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1131147720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131147717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a7ee502324e6af4c9db412b5992be3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textureName: tileset_elder
+  startIndex: 0
+  endIndex: 1
+  defaultIndex: 0
+  speed: 6
+  startOnAwake: 0
 --- !u!1 &1751523212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,6 +1161,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1131147718}
+  - {fileID: 166175688}
   m_Father: {fileID: 433100612}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1156,6 +1204,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b21945cbf761ca94397d013238951025, type: 3}
   - {fileID: 8300000, guid: b74b3739e0973854b9503521703fdce6, type: 3}
   - {fileID: 8300000, guid: 03b7f132c4260034281974087d6814ad, type: 3}
+  transitionTime: 1
   transitioning: 0
 --- !u!4 &2045400451
 Transform:

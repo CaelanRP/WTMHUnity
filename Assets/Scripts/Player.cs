@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
             Mathf.RoundToInt(newPos.x * 10) / 10f,
             Mathf.RoundToInt(newPos.y * 10) / 10f,
             0);
-            Debug.Log("Setting position to " + newPos);
+//            Debug.Log("Setting position to " + newPos);
         transform.position = newPos;
 
         AfterStep();

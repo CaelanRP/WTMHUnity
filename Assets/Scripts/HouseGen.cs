@@ -10,6 +10,11 @@ public class HouseGen : MonoBehaviour
 
     public float maxPlayerPos, exitHousePos;
 
+    public Color[] palettes;
+
+    [HideInInspector]
+    public Color currentPalette;
+
     private Transform m_tileContainer;
     public Transform tileContainer{
         get{
@@ -45,9 +50,19 @@ public class HouseGen : MonoBehaviour
         }
     }
 
+    public void SetPalette(){
+        currentPalette = palettes.RandomSelection();
+        foreach(SpriteRenderer spr in FindObjectsOfType<SpriteRenderer>()){
+            spr.color = currentPalette;
+        }
+        TextScroller.instance.textMesh.color = currentPalette;
+    }
+
     public void GenerateHouse(){
         GenerateWalls();
         TextScroller.instance.Reset();
+        TextScroller.instance.talker.RandomizeElder();
+        SetPalette();
     }
 
     public Vector2 GetWorldPosition(int x, int y){

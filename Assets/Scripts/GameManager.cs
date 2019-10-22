@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public float musicFadeTime;
     public List<AudioClip> houseMusic;
 
+    public float transitionTime;
+
     private Grammar _G;
     public Grammar grammar{
         get{
@@ -40,9 +42,9 @@ public class GameManager : MonoBehaviour
     }
 
     void Reset(){
-        StopAllCoroutines();
         TextScroller.instance.StopAllCoroutines();
         HouseGen.instance.StopAllCoroutines();
+        TextScroller.instance.Reset();
     }
 
     [HideInInspector]
@@ -60,7 +62,11 @@ public class GameManager : MonoBehaviour
     }
 
     IEnumerator ReloadHouseRoutine(){
+        transitioning = true;
+        CameraController.Disable();
         Reset();
+        yield return new WaitForSeconds(transitionTime);
+        CameraController.Enable();
         yield return StartCoroutine(EnterHouseRoutine());
     }
 
