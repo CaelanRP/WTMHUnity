@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(EnterHouseRoutine());
+        StartCoroutine(EnterHouseRoutine(true));
     }
 
     void Update(){
@@ -50,15 +50,20 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool transitioning;
 
-    IEnumerator EnterHouseRoutine(){
+    IEnumerator EnterHouseRoutine(bool first = false){
         transitioning = true;
-        HouseGen.instance.GenerateHouse();
+        HouseGen.instance.GenerateHouse(!first);
         PlayMusic();
         yield return Player.instance.WalkIntoHouse();
         yield return new WaitForSeconds(textDelay);
         string s = "";
         try{
-            s = grammar.Sample("main");
+            if (first){
+                s = "WELCOME TO MY HOUSE";
+            }
+            else{
+                s = grammar.Sample("main");
+            }
         } catch { }
         yield return TextScroller.instance.BloopTextRoutine(s);
         transitioning = false;

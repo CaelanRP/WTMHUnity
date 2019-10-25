@@ -58,11 +58,13 @@ public class HouseGen : MonoBehaviour
         TextScroller.instance.textMesh.color = currentPalette;
     }
 
-    public void GenerateHouse(){
+    public void GenerateHouse(bool randomize = true){
         GenerateWalls();
         TextScroller.instance.Reset();
-        TextScroller.instance.talker.RandomizeElder();
-        SetPalette();
+        if (randomize){ 
+            TextScroller.instance.talker.RandomizeElder();
+            SetPalette();
+        }
     }
 
     public Vector2 GetWorldPosition(int x, int y){

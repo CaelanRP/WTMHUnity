@@ -45,11 +45,12 @@ public class Player : MonoBehaviour
 
     void HandleInput(){
         float val = Input.GetAxisRaw("Vertical");
+        /*
         if (val > 0.5f && canMoveUp){
             target = transform.position + Vector3.up;
             animator.SetBool("Walking", true);
         }
-        else if (val < -0.5f){
+        else */if (val < -0.5f){
             target = transform.position + Vector3.down;
             animator.SetBool("Walking", true);
         }
